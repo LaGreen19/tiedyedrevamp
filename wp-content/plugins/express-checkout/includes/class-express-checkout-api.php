@@ -181,5 +181,16 @@ class Express_Checkout_API {
 
         return $message;
     }
+    
+    public function express_checkout_refund($order_id, $amount, $reason) {
+        $order = wc_get_order($order_id);
+        $this->setmethods = 'RefundTransaction';
+        $this->order = $order;
+        $request = $this->ex_new_request();
+        $request->ex_do_refund($order_id, $amount, $reason);
+        $this->ex_request_response_log_write($request->parameters);
+        return $this->ex_perform_request($request);
+    }
+   
 
 }

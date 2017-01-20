@@ -2,7 +2,7 @@
 Contributors: Out the Box
 Donate link: 
 Tags: one-column, two-columns, left-sidebar, right-sidebar, flexible-header, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, full-width-template, post-formats, theme-options, threaded-comments, translation-ready, blog, e-commerce
-Tested up to: 4.1.1
+Tested up to: 4.7.1
 Stable tag: 3.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -13,7 +13,7 @@ Panoramic is a well designed, fully responsive theme with a homepage slider that
 
 == License ==
 
-Panoramic WordPress Theme, Copyright 2015 Out the Box.
+Panoramic WordPress Theme, Copyright 2016 Out the Box.
 Panoramic is distributed under the terms of the GNU GPL.
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -91,6 +91,15 @@ View the theme settings under "Appearance" -> Customize.
 1. Featured Images work best at a minimum of 1100 wide and 420 high.
 
 == Changelog ==
+
+#### 1.0.21
+* Added an alt tag to the header image
+
+#### 1.0.20
+* Amended the next and previous links on the blog pages to filter out slide posts
+* Changed the styling of the heading tags not to break words
+* Fixed bugs with the styling of the WooCommerce product listing page and product detail page on mobile
+* Fixed a bug with the WooCommerce product category page not displaying in full width when the shop page is set to full width
 
 #### 1.0.19
 * Fixed a bug in IE where the site logo wasn't responsive when the header is in Centered mode
@@ -208,7 +217,7 @@ View the theme settings under "Appearance" -> Customize.
 * Updated the theme options page
 * Fixed an issue with the styling on the slider
 * Added the TGM Plugin Activation plugin for handling recommended plugins
-* Fixed an error on the upgrade page 
+* Fixed an error on the upgrade page
 
 #### 1.0.0
 * Initial release

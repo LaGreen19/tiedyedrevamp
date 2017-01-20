@@ -1,10 +1,10 @@
  === Slider ===
 Contributors: GhozyLab
 Donate link: https://ghozy.link/rs3bq
-Tags: image slider, photo slider, responsive slider, slider, slider plugin, slideshow, wordpress slider, wordpress slideshow, wp slider, slide, picture slider, image
+Tags: slider, image slider, photo slider, picture slider, responsive slider, slider plugin, slideshow, wordpress slider, wordpress slideshow, wp slider, slide, image
 Requires at least: 3.5
-Tested up to: 4.6.1
-Stable tag: 1.1.89
+Tested up to: 4.7
+Stable tag: 1.1.90
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -198,6 +198,9 @@ There are no complicated instructions for using Image Slider plugin because this
 IMPORTANT! SECURITY BUGS FIX, PLEASE UPDATE NOW!
 
 == Changelog ==
+
+= 1.1.90 =
+* IMPORTANT! SECURITY BUGS FIX, PLEASE UPDATE NOW!
 
 = 1.1.89 =
 * Tweak : Shortcode Manager Interface

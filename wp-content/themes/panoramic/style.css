@@ -4,7 +4,7 @@ Theme URI: http://www.outtheboxthemes.com/themes/panoramic/
 Author: Out the Box
 Author URI: http://www.outtheboxthemes.com/
 Description: Panoramic is a well designed, fully responsive theme with a homepage slider that's easy to customize and offers 5 star support. The subtle design features give it a premium feel and the wide range of flexible theme options help you create a variety of sites from a simple blog to a fully functional online eCommerce store. Used in conjunction with SiteOrigin's drag and drop Page Builder plugin, you can easily build beautiful page layouts with no coding knowledge to create any website from travel to business to food, decor, lifestyle, sport and more. Panoramic integrates seamlessly with the following popular free plugins: SiteOrigin's Page Builder, Contact Form 7 and WooCommerce.
-Version: 1.0.19
+Version: 1.0.21
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: panoramic
@@ -310,7 +310,7 @@ th {
 h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     font-weight: 300;
     line-height: 1.0em;
-    word-wrap: break-word;
+    word-wrap: normal;
     color: #006489;
     margin-top: 0;
 }

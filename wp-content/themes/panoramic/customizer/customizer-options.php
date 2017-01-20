@@ -251,7 +251,8 @@ function panoramic_customizer_library_options() {
 		'id' => 'panoramic-header-image-text',
         'label'   => __( 'Text', 'panoramic' ),
         'section' => $section,
-        'type'    => 'textarea'
+        'type'    => 'textarea',
+    	'description' => esc_html( __( 'Use <h2></h2> tags around heading text and <p></p> tags around body text.', 'panoramic' ) )
     );
 	
     
@@ -379,7 +380,7 @@ function panoramic_customizer_library_options() {
     	'default' => 'Read More'
     );
     
-    // Site Text Settings
+    // Website Text Settings
     $section = 'panoramic-website';
 
     $sections[] = array(

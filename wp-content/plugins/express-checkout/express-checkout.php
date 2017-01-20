@@ -5,7 +5,7 @@
  * Plugin Name:       PayPal Express Checkout for WooCommerce
  * Plugin URI:        https://www.premiumdev.com/product/paypal-express-checkout-for-woocommerce/
  * Description:       Add a PayPal Express Checkout to your WooCommerce Website and start selling today. Developed by Official PayPal Partner.
- * Version:           1.1.7
+ * Version:           1.1.9
  * Author:            wpgateways
  * Author URI:        https://www.premiumdev.com/
  * License:           GPL-2.0+

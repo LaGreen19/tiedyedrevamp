@@ -2,8 +2,8 @@
 Contributors: wpgateways
 Tags: doexpresscheckoutpayment, setexpresscheckout, getexpresscheckoutdetails, express checkout, paypal, woocommerce, gateway, payment gateway, paypal payment, ecommerce
 Requires at least: 3.0.1
-Tested up to: 4.6
-Stable tag: 1.1.7
+Tested up to: 4.7.0
+Stable tag: 1.1.9
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -66,6 +66,10 @@ Easy steps to install the plugin:
 == Frequently Asked Questions ==
 
 == Changelog ==
+= 1.1.9 =
+*	Resolved icon related issue, add payment method and add refund related functionality
+= 1.1.8 =
+*  Resolved 81002-Method Specified is not Supported issue
 = 1.1.6 =
 * 	Tested up to: 4.6 PayPal Express Checkout for WooCommerce working fine.
 = 1.1.5 =

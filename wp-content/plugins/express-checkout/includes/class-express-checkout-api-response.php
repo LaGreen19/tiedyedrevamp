@@ -19,7 +19,7 @@ class Express_Checkout_API_Response {
                 'city' => isset($response['SHIPTOCITY']) ? $response['SHIPTOCITY'] : '',
                 'postcode' => isset($response['SHIPTOZIP']) ? $response['SHIPTOZIP'] : '',
                 'country' => isset($response['SHIPTOCOUNTRYCODE']) ? $response['SHIPTOCOUNTRYCODE'] : '',
-                'state' => $this->ex_get_state_code($response['SHIPTOCOUNTRYCODE'], $response['SHIPTOSTATE']),
+                'state' => (isset($response['SHIPTOCOUNTRYCODE']) && isset($response['SHIPTOSTATE'])) ? $this->ex_get_state_code($response['SHIPTOCOUNTRYCODE'], $response['SHIPTOSTATE']) : ''
             );
         }
         return $details;

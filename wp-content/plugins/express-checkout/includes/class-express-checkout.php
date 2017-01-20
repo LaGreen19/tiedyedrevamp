@@ -57,7 +57,7 @@ class Express_Checkout {
     public function __construct() {
 
         $this->plugin_name = 'express-checkout';
-        $this->version = '1.1.7';
+        $this->version = '1.1.9';
 
         $this->load_dependencies();
         $this->set_locale();

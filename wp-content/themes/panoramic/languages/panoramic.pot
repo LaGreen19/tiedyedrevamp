@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: panoramic\n"
-"POT-Creation-Date: 2016-11-05 23:27+0200\n"
+"POT-Creation-Date: 2017-01-16 14:08+0200\n"
 "PO-Revision-Date: 2016-11-05 23:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -19,11 +19,11 @@ msgstr ""
 "esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: 404.php:14 customizer/customizer-options.php:395
+#: 404.php:14 customizer/customizer-options.php:396
 msgid "404!"
 msgstr ""
 
-#: 404.php:19 customizer/customizer-options.php:402
+#: 404.php:19 customizer/customizer-options.php:403
 msgid "The page you were looking for cannot be found!"
 msgstr ""
 
@@ -270,71 +270,77 @@ msgstr ""
 msgid "Text"
 msgstr ""
 
-#: customizer/customizer-options.php:264
+#: customizer/customizer-options.php:255
+msgid ""
+"Use <h2></h2> tags around heading text and <p></p> tags around body "
+"text."
+msgstr ""
+
+#: customizer/customizer-options.php:265
 msgid "Colors"
 msgstr ""
 
-#: customizer/customizer-options.php:270
+#: customizer/customizer-options.php:271
 msgid "Primary Color"
 msgstr ""
 
-#: customizer/customizer-options.php:277
+#: customizer/customizer-options.php:278
 msgid "Secondary Color"
 msgstr ""
 
-#: customizer/customizer-options.php:285
+#: customizer/customizer-options.php:286
 msgid "Footer Color"
 msgstr ""
 
-#: customizer/customizer-options.php:298
+#: customizer/customizer-options.php:299
 msgid "Fonts"
 msgstr ""
 
-#: customizer/customizer-options.php:304
+#: customizer/customizer-options.php:305
 msgid "Site Title Font"
 msgstr ""
 
-#: customizer/customizer-options.php:313
+#: customizer/customizer-options.php:314
 msgid "Heading Font"
 msgstr ""
 
-#: customizer/customizer-options.php:321
+#: customizer/customizer-options.php:322
 msgid "Heading Font Color"
 msgstr ""
 
-#: customizer/customizer-options.php:329
+#: customizer/customizer-options.php:330
 msgid "Body Font"
 msgstr ""
 
-#: customizer/customizer-options.php:337
+#: customizer/customizer-options.php:338
 msgid "Body Font Color"
 msgstr ""
 
-#: customizer/customizer-options.php:349
+#: customizer/customizer-options.php:350
 msgid "Blog"
 msgstr ""
 
-#: customizer/customizer-options.php:359
+#: customizer/customizer-options.php:360
 msgid "Archive Layout"
 msgstr ""
 
-#: customizer/customizer-options.php:368
+#: customizer/customizer-options.php:369
 msgid "Excerpt Length"
 msgstr ""
 
-#: customizer/customizer-options.php:376
+#: customizer/customizer-options.php:377
 msgid "Read More Text"
 msgstr ""
 
-#: customizer/customizer-options.php:387
+#: customizer/customizer-options.php:388
 msgid "Website Text"
 msgstr ""
 
-#: customizer/customizer-options.php:392
+#: customizer/customizer-options.php:393
 msgid "404 Page Heading"
 msgstr ""
 
-#: customizer/customizer-options.php:399
+#: customizer/customizer-options.php:400
 msgid "404 Page Message"
 msgstr ""
 
@@ -848,76 +854,76 @@ msgstr ""
 msgid "Post navigation"
 msgstr ""
 
-#: library/includes/template-tags.php:59
+#: library/includes/template-tags.php:63
 msgctxt "Previous post link"
 msgid "%title&nbsp;<span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: library/includes/template-tags.php:60
+#: library/includes/template-tags.php:64
 msgctxt "Next post link"
 msgid "<span class=\"meta-nav\">&larr;</span>&nbsp;%title"
 msgstr ""
 
-#: library/includes/template-tags.php:86
+#: library/includes/template-tags.php:90
 #, php-format
 msgctxt "post date"
 msgid "Posted on %s"
 msgstr ""
 
-#: library/includes/template-tags.php:91
+#: library/includes/template-tags.php:95
 #, php-format
 msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
-#: library/includes/template-tags.php:108
-#: library/includes/template-tags.php:114
+#: library/includes/template-tags.php:112
+#: library/includes/template-tags.php:118
 msgid ", "
 msgstr ""
 
-#: library/includes/template-tags.php:110
+#: library/includes/template-tags.php:114
 #, php-format
 msgid "Posted in %1$s "
 msgstr ""
 
-#: library/includes/template-tags.php:116
+#: library/includes/template-tags.php:120
 #, php-format
 msgid "Tagged %1$s "
 msgstr ""
 
-#: library/includes/template-tags.php:122
+#: library/includes/template-tags.php:126
 msgid "Leave a comment "
 msgstr ""
 
-#: library/includes/template-tags.php:122
+#: library/includes/template-tags.php:126
 msgid "1 Comment "
 msgstr ""
 
-#: library/includes/template-tags.php:122
+#: library/includes/template-tags.php:126
 msgid "% Comments "
 msgstr ""
 
-#: library/includes/template-tags.php:126
-#: library/includes/template-tags.php:175
-#: library/includes/template-tags.php:203
+#: library/includes/template-tags.php:130
+#: library/includes/template-tags.php:179
+#: library/includes/template-tags.php:207
 #: library/template-parts/content-page.php:22
 msgid "Edit"
 msgstr ""
 
-#: library/includes/template-tags.php:175
+#: library/includes/template-tags.php:179
 msgid "Pingback:"
 msgstr ""
 
-#: library/includes/template-tags.php:185
+#: library/includes/template-tags.php:189
 #, php-format
 msgid "%s <span class=\"says\">says:</span>"
 msgstr ""
 
-#: library/includes/template-tags.php:189
+#: library/includes/template-tags.php:193
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: library/includes/template-tags.php:200
+#: library/includes/template-tags.php:204
 #, php-format
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"

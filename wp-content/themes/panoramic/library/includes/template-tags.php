@@ -55,6 +55,10 @@ function panoramic_post_nav() {
 			$slider_categories 	= get_theme_mod( 'panoramic-slider-categories', '' );
     		$slider_type 		= get_theme_mod( 'panoramic-slider-type', customizer_library_get_default( 'panoramic-slider-type' ) );
     		$exclude_categories = '';
+    		
+    		if ( $slider_type == 'panoramic-slider-default' ) {
+				$exclude_categories = $slider_categories;
+			}
 			
 			previous_post_link( '<div class="nav-previous">%link</div>', _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Previous post link', 'panoramic' ), false, $exclude_categories );
 			next_post_link(     '<div class="nav-next">%link</div>',     _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Next post link',     'panoramic' ), false, $exclude_categories );

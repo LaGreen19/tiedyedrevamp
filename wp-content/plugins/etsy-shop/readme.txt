@@ -2,9 +2,9 @@
 Contributors: fsheedy
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=9RPPQUY4M2AHL&lc=CA&item_name=Etsy%2dShop%20Wordpress%20Plugin&currency_code=CAD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted
 Tags: etsy, etsy listing, bracket, shortcode, shopping, shop, store, sell
-Tested up to: 4.5
+Tested up to: 4.7
 Requires at least: 3.4.2
-Stable tag: 0.18
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,12 +18,12 @@ Plugin that allow you to insert Etsy Shop sections in pages or posts using the b
 
 == Installation ==
 
-1. Upload the plugin to the '/wp-content/plugins/' directory;
+1. Upload the plugin to the `/wp-content/plugins/` directory;
 2. Give read & write access to tmp folder;
-3. Activate the plugin through the 'Plugins' menu in WordPress;
-4. Get your own Etsy Developer API key (http://www.etsy.com/developers/register);
+3. Activate the plugin through the `Plugins` menu in WordPress;
+4. Get your own Etsy Developer API key: [Etsy Developers](http://www.etsy.com/developers/register);
 5. Enter your API key in the Etsy Shop Options page;
-6. Place '[etsy-shop shop_name="*your-etsy-shop-name*" section_id="*your-etsy-shop-setion-id*"]' in your page or post;
+6. Place `[etsy-shop shop_name="*your-etsy-shop-name*" section_id="*your-etsy-shop-setion-id*"]` in your page or post;
 7. Viewers will be able to click on your your items.
 
 == Frequently Asked Questions ==
@@ -49,7 +49,7 @@ See below 'Etsy Shop: missing arguments'.
 * etsy-shop-name
 * etsy-shop-section-id
 
-So, you should have someting like this: **[etsy-shop shop_name="Laplume" section_id="10088437"]**
+So, you should have someting like this: `[etsy-shop shop_name="Laplume" section_id="10088437"]`
 
 More argument:
 * show_available_tag [0 or 1]
@@ -67,7 +67,7 @@ Please open a new topic in Forum, with all details.
 Please make sure that your API Key is valid.
 
 = How to integrate directly in template? =
-Use '<?php echo do_shortcode( '[etsy-shop shop_name="*your-etsy-shop-name*" section_id="*your-etsy-shop-setion-id*"]' ); ?>'
+Use `<?php echo do_shortcode( '[etsy-shop shop_name="*your-etsy-shop-name*" section_id="*your-etsy-shop-setion-id*"]' ); ?>`
 
 == Screenshots ==
 
@@ -76,6 +76,11 @@ Use '<?php echo do_shortcode( '[etsy-shop shop_name="*your-etsy-shop-name*" sect
 3. Edit Post to include Etsy Shop
 
 == Changelog ==
+
+= 1.0 =
+* Cache life now as option
+* Update logic added
+* Jump to version 1.0, follow the Semantic Versioning
 
 = 0.18 =
 * Add version for css file

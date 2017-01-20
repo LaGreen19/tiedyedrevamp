@@ -199,18 +199,22 @@ class Express_Checkout_Gateway extends WC_Payment_Gateway {
                         $order = wc_get_order($order_id);
                         $order->set_address(WC()->session->paypal_express_checkout['shipping_details'], 'billing');
                         $order->set_address(WC()->session->paypal_express_checkout['shipping_details'], 'shipping');
-                        $order->set_payment_method(WC()->session->chosen_payment_method);
+                        $order->set_payment_method($this->id);
+
+                        update_post_meta($order_id, '_payment_method', $this->id);
+                        update_post_meta($order_id, '_payment_method_title', $this->title);
+
                         update_post_meta($order_id, '_customer_user', get_current_user_id());
-                        if( !empty(WC()->session->post_data['billing_phone'])) {
+                        if (!empty(WC()->session->post_data['billing_phone'])) {
                             update_post_meta($order_id, '_billing_phone', WC()->session->post_data['billing_phone']);
                         }
-                        if( !empty(WC()->session->post_data['order_comments'])) {
+                        if (!empty(WC()->session->post_data['order_comments'])) {
                             update_post_meta($order_id, 'order_comments', WC()->session->post_data['order_comments']);
-                             $my_post = array(
-                                'ID'           => $order_id,
+                            $my_post = array(
+                                'ID' => $order_id,
                                 'post_excerpt' => WC()->session->post_data['order_comments'],
                             );
-                            wp_update_post( $my_post );
+                            wp_update_post($my_post);
                         }
                         do_action('woocommerce_checkout_order_processed', $order_id, array());
                         $this->ex_skip_reviwe_order_form($order_id);
@@ -645,6 +649,28 @@ class Express_Checkout_Gateway extends WC_Payment_Gateway {
 
         $icon = "<img src=\"$image_path\" alt='" . __('Pay with PayPal', 'express-checkout') . "'/>";
         return apply_filters('woocommerce_gateway_icon', $icon, $this->id);
+    }
+
+    /**
+     * Process a refund if supported
+     * @param  int $order_id
+     * @param  float $amount
+     * @param  string $reason
+     * @return  bool|wp_error True or false based on success, or a WP_Error object
+     */
+    public function process_refund($order_id, $amount = null, $reason = '') {
+        $order = wc_get_order($order_id);
+        $response = $this->ex_get_api()->express_checkout_refund($order_id, $amount, $reason);
+        if ($response['ACK'] == 'Success' || $response['ACK'] == 'SuccessWithWarning') {
+            $order->add_order_note('Refund Transaction ID:' . $response['REFUNDTRANSACTIONID']);
+            $max_remaining_refund = wc_format_decimal($order->get_total() - $order->get_total_refunded());
+            if (!$max_remaining_refund > 0) {
+                $order->update_status('refunded');
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

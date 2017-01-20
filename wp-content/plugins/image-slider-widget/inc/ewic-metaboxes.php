@@ -510,11 +510,67 @@ function ewic_save_meta_box( $post_id ) {
 		if ( !current_user_can( 'edit_post', $post_id ) ) return;
 	}
 			
-		// save data
+		$temp_key = array();
+		$temp_val = array();
+		$temp_size = array();
+		
 		foreach( $_POST['ewic_meta'] as $key => $val ) {
+			
 			delete_post_meta( $post_id, $key );
-			add_post_meta( $post_id, $key, $_POST['ewic_meta'][$key], true ); 
-		}
+			
+			if ( is_array( $val ) ) {
+				
+				switch ( $key ) {
+					
+					case 'ewic_meta_select_images':
+					
+						foreach ( $val as $skey => $fvl ) {
+							
+							$temp_key[$skey] = $skey;
+							
+							foreach ( $fvl as $sval => $fsval ) {
+								
+								$temp_val[$sval] = esc_attr( $fsval );
+		
+							}
+							
+							$temp_key[$skey] = $temp_val;
+						}
+						
+						$tags = $temp_key;
+					
+					break;
+					
+					case 'ewic_meta_thumbsizelt':
+					
+						foreach ( $val as $vl => $sz ) {
+							
+							$temp_size[$vl] = esc_attr( $sz );
+							$tags = $temp_size;
+							
+						}
+					
+					break;
+					
+					default:
+						$tags = sanitize_text_field( $_POST['ewic_meta'][$key] );
+					break;
+
+				}
+						
+			}
+			
+			else {
+				
+				$tags = sanitize_text_field( $_POST['ewic_meta'][$key] );
+				
+			}
+			
+			// save data
+			add_post_meta( $post_id, $key, $tags, true );
+			
+		}		
+		
 }
 add_action( 'save_post', 'ewic_save_meta_box' );
 

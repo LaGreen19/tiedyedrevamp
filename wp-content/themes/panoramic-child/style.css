@@ -18,8 +18,8 @@ h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .site-footer-widgets
   font-family:"Montserrat", sans-serif!important;
 }
 
-a{
-  color:#4a935e;
+p span a{
+  color:#51936c!important;
 }
 
 h1{
@@ -29,13 +29,20 @@ h1{
 /*****HEADER *******/
 
 #masthead{
-   background-image: url("http://tiedyedrevamp.staging.wpengine.com/wp-content/uploads/2016/12/burlap-1-1024x682.jpg");
+  background-color:rgba(194,157,114, .65);
+}
+
+.panoramic-header-layout-standard .site-header-right-link a,
+.header-cart-amount,
+.header-cart-checkout {
+    color: #603a17;
+    font-size:1.5em;
 }
 
 /*****MAIN AREA *********/
 
 .woocommerce #container, .woocommerce-page #container, .content-area{
-  width:98%;
+  width:98%!important;
   margin:0 auto;
 }
 
@@ -48,16 +55,41 @@ h1{
 .wpcs_product_carousel_slider .owl-item .item img {
     width: 100px;
     margin-left: 40px;
+    padding:2%;
 }
+
 
 .entry-content{
   padding:15px;
   background-color: rgba(194,157,114, .65);
+  border-radius:1%;
 }
+
+.wpcs_product_carousel_slider .product_image_container .product_thumb_link img{
+  margin:0;
+}
+
+#woo-product-carousel-wrapper-838649228 .owl-item .item h4.product_name a{
+  padding:2%;
+}
+
+hr{
+  display:none;
+}
+
 /*********FOOTER ***********/
 .site-footer-widgets{
-    background-image: url("http://tiedyedrevamp.staging.wpengine.com/wp-content/uploads/2016/12/burlap-1-1024x682.jpg");
-    padding:0 0 20px 0;
+    background-color: rgba(194,157,114,1);
+    color:#603813;
+    padding:20px 0;
+    font-family:"Motserrat", sans-serif;
+    font-weight:bold;
+    font-size:1.2em;
+    background-image:url("http://tiedyedturtle.com/wp-content/uploads/2017/01/burlap-1024x682.jpg");
+}
+
+.site-footer-widgets a{
+  color:#4a935e;
 }
 
 .site-footer-widgets .widget ul li {
@@ -68,16 +100,21 @@ h1{
 }
 
 .site-footer-widgets .site-container > ul > li {
-  width:45%;
+  width:50%;
 }
 
 div.crafty-social-buttons ul li img {
   padding-right:15%;
 }
 
+.textwidget{
+  font-size:.8em;
+}
+
 .site-footer-bottom-bar{
   height:auto;
   padding:0;
+  display:none;
 }
 
 .entry-footer{
@@ -86,13 +123,69 @@ div.crafty-social-buttons ul li img {
 
 /*****REVIEWS PAGE ******/
 .entry-content h1, .entry-content p span{
-  font-family:"Lato", sans-serif!important;
+  font-family:"Motserrat", sans-serif!important;
   font-weight:bold;
   color:#603813;
 }
 
 .entry-content h1 span{
   font-size:24px!important;
-  font-family:"pacifico", sans-serif;
+  font-family:"Monsterrat", sans-serif!important;
   color:#603813;
+}
+
+
+/*****PRODUCT PAGES ********/
+.woocommerce #container, .woocommerce-page #container {
+    width: 100%;
+}
+
+.woocommerce .woocommerce-breadcrumb, .woocommerce .woocommerce-breadcrumb a{
+    color: #603813!important;
+    font-size:1em!important;
+}
+.woocommerce #content div.product p.price, .woocommerce-page #content div.product p.price, .woocommerce-page div.product p.price{
+  color:#51936c!important;
+  font-family:"Montserrat", sans-serif;
+  background-color: rgba(194,157,114, .65);
+}
+
+span.s1,
+.woocommerce div.product{
+  color:#603813;
+  font-family:"Montserrat", sans-serif;
+  font-size:18px;
+}
+
+.woocommerce-tabs ul.tabs, .woocommerce div.product .woocommerce-tabs ul.tabs, .woocommerce-page #content div.product .woocommerce-tabs ul.tabs, .woocommerce-page div.product .woocommerce-tabs ul.tabs{
+  display:none;
+}
+
+.woocommerce #content div.product .woocommerce-tabs .panel, .woocommerce div.product .woocommerce-tabs .panel, .woocommerce-page #content div.product .woocommerce-tabs .panel, .woocommerce-page div.product .woocommerce-tabs .panel{
+  width:100%!important;
+  margin:0;
+}
+
+h3#reply-title{
+  font-size:1em;
+}
+
+.notice{
+  display:none;
+}
+
+.single-product.woocommerce .widget-area, .single-product.woocommerce-page .widget-area {
+    padding-top: 15px !important;
+    width: 50%;
+    font-size: 1.5em;
+    background-color: rgba(194,157,114, .65);
+}
+
+.woocommerce ul.product_list_widget li img {
+  width:auto;
+}
+
+.site-container{
+  max-width:1500px;
+  padding:0 3%;
 }

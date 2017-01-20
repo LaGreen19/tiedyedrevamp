@@ -58,7 +58,7 @@ class Express_Checkout_Utility {
             $ex_button_link = $this->ex_get_checkout_url('ex_set_express_checkout');
             if ('image' === $this->express_checkout_get_option('checkout_button_style')) {
                 $ex_button_output .= '<div class="express_checkout_button"><a href="' . $ex_button_link . '" class="single_add_to_cart_button paypal_checkout_button paypal-express-checkout-button ex_clearfix">';
-                $ex_button_output .= '<input type="image" class="single_add_to_cart_button" src="https://www.paypal.com/' . $this->ex_get_locale() . '/i/btn/btn_xpressCheckout.gif" width="145" height="42" style="width: 145px; height: 42px; float: right; clear: both; margin: 3px 0 0 0; border: none; padding: 0;" align="top" alt="' . __('Check out with PayPal', 'express-checkout') . '" />';
+                $ex_button_output .= '<input type="image" class="single_add_to_cart_button" src="https://www.paypalobjects.com/webstatic/' . $this->ex_get_locale() . '/i/buttons/checkout-logo-medium.png" width="170" height="32" style="width: 170px; height: 32px; float: right; clear: both; margin: 3px 0px 6px 0; border: none; padding: 0;" align="top" alt="' . __('Check out with PayPal', 'express-checkout') . '" />';
                 $ex_button_output .= "</a></div>";
             } else {
                 $ex_button_output .= '<a class="single_add_to_cart_button paypal-express-checkout-button button alt" href="' . $ex_button_link . '">' . __('Check out with PayPal &rarr;', 'express-checkout') . '</a>';

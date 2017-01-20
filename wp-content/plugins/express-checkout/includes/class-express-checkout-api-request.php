@@ -93,7 +93,7 @@ class Express_Checkout_API_Request {
                 $quantity = absint($cart_item['quantity']);
                 $item_price = $this->ex_round($cart_item['line_subtotal'] / $quantity, 2);
                 $this->ex_add_line_item_parameters(array(
-                    'NAME' => $this->ex_str_truncate(html_entity_decode($product->get_title(), ENT_QUOTES, 'UTF-8'), 127),
+                    'NAME' => html_entity_decode( wc_trim_string( $product->get_title() ? $product->get_title() : __( 'Item', 'woocommerce' ), 127 ), ENT_NOQUOTES, 'UTF-8' ),
                     'DESC' => $this->ex_get_item_description($cart_item, $product),
                     'AMT' => $item_price,
                     'QTY' => $quantity,
@@ -367,6 +367,21 @@ class Express_Checkout_API_Request {
     public function ex_str_to_ascii($string) {
         $ascii = iconv('UTF-8', 'ASCII//IGNORE', $string);
         return false === $ascii ? preg_replace('/[^a-zA-Z0-9]/', '', $string) : $ascii;
+    }
+    
+     public function ex_do_refund($order_id, $amount, $reason) {
+        $order = wc_get_order($order_id);
+        $this->ex_set_method('RefundTransaction');
+        $this->ex_add_parameters(array(
+            'TRANSACTIONID' => $order->get_transaction_id(),
+            'REFUNDTYPE' => $order->get_total() == $amount ? 'Full' : 'Partial',
+            'BUTTONSOURCE' => 'mbjtechnolabs_SP',
+            'AMT' => $this->ex_round($amount),
+            'CURRENCYCODE' => $order->get_order_currency(),
+            'NOTE' => $reason,
+            
+        ));
+        
     }
 
 }

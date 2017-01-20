@@ -1,10 +1,10 @@
-# Copyright (C) 2016 Express Checkout
-# This file is distributed under the same license as the Express Checkout package.
+# Copyright (C) 2016 PayPal Express Checkout for WooCommerce
+# This file is distributed under the same license as the PayPal Express Checkout for WooCommerce package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Express Checkout 1.0.0\n"
+"Project-Id-Version: PayPal Express Checkout for WooCommerce 1.1.8\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/express-checkout\n"
-"POT-Creation-Date: 2016-03-26 03:01:26+00:00\n"
+"POT-Creation-Date: 2016-11-12 14:51:22+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,30 +12,34 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: includes/class-express-checkout-api-request.php:61
+#: includes/class-express-checkout-api-request.php:65
 msgid "Fee - %s"
 msgstr ""
 
-#: includes/class-express-checkout-api-request.php:72
-#: includes/class-express-checkout-api-request.php:206
+#: includes/class-express-checkout-api-request.php:76
+#: includes/class-express-checkout-api-request.php:214
 msgid "%s - Order"
 msgstr ""
 
-#: includes/class-express-checkout-api-request.php:101
-#: includes/class-express-checkout-api-request.php:190
+#: includes/class-express-checkout-api-request.php:96
+msgid "Item"
+msgstr ""
+
+#: includes/class-express-checkout-api-request.php:106
+#: includes/class-express-checkout-api-request.php:198
 msgid "Total Discount"
 msgstr ""
 
-#: includes/class-express-checkout-api-request.php:110
+#: includes/class-express-checkout-api-request.php:115
 msgid "Fee"
 msgstr ""
 
-#: includes/class-express-checkout-api-request.php:121
-#: includes/class-express-checkout-api-request.php:229
+#: includes/class-express-checkout-api-request.php:126
+#: includes/class-express-checkout-api-request.php:237
 msgid "PayPal Rounding Adjustment"
 msgstr ""
 
-#: includes/class-express-checkout-api-request.php:292
+#: includes/class-express-checkout-api-request.php:300
 msgid "SKU: %s"
 msgstr ""
 
@@ -47,100 +51,218 @@ msgstr ""
 msgid "Express Checkout is a fast, easy way for buyers to pay with PayPal."
 msgstr ""
 
-#: includes/class-express-checkout-gateway.php:78
+#: includes/class-express-checkout-gateway.php:39
+msgid "Complete Order"
+msgstr ""
+
+#: includes/class-express-checkout-gateway.php:39
+msgid "Proceed to PayPal"
+msgstr ""
+
+#: includes/class-express-checkout-gateway.php:79
 msgid "Payment error"
 msgstr ""
 
-#: includes/class-express-checkout-gateway.php:115
+#: includes/class-express-checkout-gateway.php:94
+msgid ""
+"your order amount is zero, We were unable to process your order, please try "
+"again."
+msgstr ""
+
+#: includes/class-express-checkout-gateway.php:124
 msgid "SetExpressCheckout API call failed."
 msgstr ""
 
-#: includes/class-express-checkout-gateway.php:116
-#: includes/class-express-checkout-gateway.php:165
-#: includes/class-express-checkout-gateway.php:210
+#: includes/class-express-checkout-gateway.php:125
+#: includes/class-express-checkout-gateway.php:174
+#: includes/class-express-checkout-gateway.php:264
 msgid "Error Code: "
 msgstr ""
 
-#: includes/class-express-checkout-gateway.php:117
-#: includes/class-express-checkout-gateway.php:166
-#: includes/class-express-checkout-gateway.php:211
+#: includes/class-express-checkout-gateway.php:126
+#: includes/class-express-checkout-gateway.php:175
+#: includes/class-express-checkout-gateway.php:265
 msgid "Error Severity Code: "
 msgstr ""
 
-#: includes/class-express-checkout-gateway.php:118
-#: includes/class-express-checkout-gateway.php:167
-#: includes/class-express-checkout-gateway.php:212
+#: includes/class-express-checkout-gateway.php:127
+#: includes/class-express-checkout-gateway.php:176
+#: includes/class-express-checkout-gateway.php:266
 msgid "Short Error Message: "
 msgstr ""
 
-#: includes/class-express-checkout-gateway.php:119
-#: includes/class-express-checkout-gateway.php:168
-#: includes/class-express-checkout-gateway.php:213
+#: includes/class-express-checkout-gateway.php:128
+#: includes/class-express-checkout-gateway.php:177
+#: includes/class-express-checkout-gateway.php:267
 msgid "Detailed Error Message: "
 msgstr ""
 
-#: includes/class-express-checkout-gateway.php:120
-#: includes/class-express-checkout-gateway.php:169
-#: includes/class-express-checkout-gateway.php:214
+#: includes/class-express-checkout-gateway.php:129
+#: includes/class-express-checkout-gateway.php:178
+#: includes/class-express-checkout-gateway.php:268
 msgid "User IP: "
 msgstr ""
 
-#: includes/class-express-checkout-gateway.php:130
-#: includes/class-express-checkout-gateway.php:136
-#: includes/class-express-checkout-gateway.php:179
-#: includes/class-express-checkout-gateway.php:185
-#: includes/class-express-checkout-gateway.php:234
+#: includes/class-express-checkout-gateway.php:145
+#: includes/class-express-checkout-gateway.php:221
+#: includes/class-express-checkout-gateway.php:290
 msgid ""
 "An error occurred, We were unable to process your order, please try again."
 msgstr ""
 
-#: includes/class-express-checkout-gateway.php:164
+#: includes/class-express-checkout-gateway.php:173
 msgid "GetExpressCheckout API call failed."
 msgstr ""
 
-#: includes/class-express-checkout-gateway.php:199
-msgid "Payment to be made upon delivery."
-msgstr ""
-
-#: includes/class-express-checkout-gateway.php:209
+#: includes/class-express-checkout-gateway.php:263
 msgid "DoExpressCheckoutPayment API call failed."
 msgstr ""
 
-#: includes/class-express-checkout-gateway.php:215
+#: includes/class-express-checkout-gateway.php:269
 msgid "Order ID: "
 msgstr ""
 
-#: includes/class-express-checkout-gateway.php:216
+#: includes/class-express-checkout-gateway.php:270
 msgid "Customer Name: "
 msgstr ""
 
-#: includes/class-express-checkout-gateway.php:217
+#: includes/class-express-checkout-gateway.php:271
 msgid "Customer Email: "
 msgstr ""
 
-#: includes/class-express-checkout-gateway.php:229
-msgid "There was a problem paying with PayPal, please try again."
+#: includes/class-express-checkout-gateway.php:306
+msgid "Payment Completed via Express Checkout"
 msgstr ""
 
-#: includes/class-express-checkout-gateway.php:361
+#: includes/class-express-checkout-gateway.php:315
+msgid ""
+"Address: The payment is pending because your customer did not include a "
+"confirmed shipping address and your Payment Receiving Preferences is set "
+"such that you want to manually accept or deny each of these payments. To "
+"change your preference, go to the Preferences section of your Profile."
+msgstr ""
+
+#: includes/class-express-checkout-gateway.php:318
+msgid ""
+"Authorization: The payment is pending because it has been authorized but not "
+"settled. You must capture the funds first."
+msgstr ""
+
+#: includes/class-express-checkout-gateway.php:321
+msgid ""
+"eCheck: The payment is pending because it was made by an eCheck that has not "
+"yet cleared."
+msgstr ""
+
+#: includes/class-express-checkout-gateway.php:324
+msgid ""
+"intl: The payment is pending because you hold a non-U.S. account and do not "
+"have a withdrawal mechanism. You must manually accept or deny this payment "
+"from your Account Overview."
+msgstr ""
+
+#: includes/class-express-checkout-gateway.php:328
+msgid ""
+"Multi-currency: You do not have a balance in the currency sent, and you do "
+"not have your Payment Receiving Preferences set to automatically convert and "
+"accept this payment. You must manually accept or deny this payment."
+msgstr ""
+
+#: includes/class-express-checkout-gateway.php:331
+msgid ""
+"Order: The payment is pending because it is part of an order that has been "
+"authorized but not settled."
+msgstr ""
+
+#: includes/class-express-checkout-gateway.php:334
+msgid ""
+"Payment Review: The payment is pending while it is being reviewed by PayPal "
+"for risk."
+msgstr ""
+
+#: includes/class-express-checkout-gateway.php:337
+msgid ""
+"Unilateral: The payment is pending because it was made to an email address "
+"that is not yet registered or confirmed."
+msgstr ""
+
+#: includes/class-express-checkout-gateway.php:340
+msgid ""
+"Verify: The payment is pending because you are not yet verified. You must "
+"verify your account before you can accept this payment."
+msgstr ""
+
+#: includes/class-express-checkout-gateway.php:343
+msgid "Other: For more information, contact PayPal customer service."
+msgstr ""
+
+#: includes/class-express-checkout-gateway.php:347
+msgid "No pending reason provided."
+msgstr ""
+
+#: includes/class-express-checkout-gateway.php:350
+msgid "Payment via Express Checkout Pending. PayPal reason: %s."
+msgstr ""
+
+#: includes/class-express-checkout-gateway.php:358
+msgid "Payment %s via Express Checkout."
+msgstr ""
+
+#: includes/class-express-checkout-gateway.php:390
+msgid ""
+"An Timed out error occurred, We were unable to process your order, please "
+"try again."
+msgstr ""
+
+#: includes/class-express-checkout-gateway.php:397
+msgid ""
+"There are no HTTP transports available which can complete the requested "
+"request."
+msgstr ""
+
+#: includes/class-express-checkout-gateway.php:518
 msgid "Edit"
 msgstr ""
 
-#: includes/class-express-checkout-gateway.php:412
+#: includes/class-express-checkout-gateway.php:569
 msgid "Cancel"
 msgstr ""
 
-#: includes/class-express-checkout.php:228
+#: includes/class-express-checkout-gateway.php:646
+msgid "Pay with PayPal"
+msgstr ""
+
+#: includes/class-express-checkout-paypal-listner.php:159
+msgid "IPN payment completed"
+msgstr ""
+
+#: includes/class-express-checkout.php:269
 msgid ""
 "You have cancelled express checkout. Please try to process your order again."
 msgstr ""
 
-#: includes/gateways/class-express-checkout-utility.php:54
+#: includes/class-express-checkout.php:302
+msgid "Configure"
+msgstr ""
+
+#: includes/class-express-checkout.php:303
+msgid "Docs"
+msgstr ""
+
+#: includes/class-express-checkout.php:304
+msgid "Support"
+msgstr ""
+
+#: includes/class-express-checkout.php:305
+msgid "Write a Review"
+msgstr ""
+
 #: includes/gateways/class-express-checkout-utility.php:61
+#: includes/gateways/class-express-checkout-utility.php:68
 msgid "Check out with PayPal"
 msgstr ""
 
-#: includes/gateways/class-express-checkout-utility.php:57
+#: includes/gateways/class-express-checkout-utility.php:64
 msgid "Check out with PayPal &rarr;"
 msgstr ""
 
@@ -457,38 +579,50 @@ msgid ""
 msgstr ""
 
 #: includes/gateways/settings-express-checkout.php:211
-msgid "Enable PayPal IPN"
+msgid "Skip Final Review"
 msgstr ""
 
 #: includes/gateways/settings-express-checkout.php:212
-msgid "Enable Instant Payment Notification."
+msgid ""
+"By default, users will be returned from PayPal and presented with a final "
+"review page which includes shipping and tax in the order details. Enable "
+"this option to eliminate this page in the checkout process."
+msgstr ""
+
+#: includes/gateways/settings-express-checkout.php:218
+msgid "Enable PayPal IPN"
 msgstr ""
 
 #: includes/gateways/settings-express-checkout.php:219
+msgid "Enable Instant Payment Notification."
+msgstr ""
+
+#: includes/gateways/settings-express-checkout.php:226
 msgid "PayPal IPN URL"
 msgstr ""
 
-#: includes/gateways/settings-express-checkout.php:221
+#: includes/gateways/settings-express-checkout.php:228
 msgid ""
 "Your URL for receiving Instant Payment Notification (IPN) about transactions."
 msgstr ""
 
-#: includes/gateways/settings-express-checkout.php:225
+#: includes/gateways/settings-express-checkout.php:232
 msgid "Debug"
 msgstr ""
 
-#: includes/gateways/settings-express-checkout.php:227
+#: includes/gateways/settings-express-checkout.php:234
 msgid ""
 "Enable logging <code>/wp-content/uploads/wc-logs/paypal_express-{tag}.log</"
 "code>"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "Express Checkout"
+msgid "PayPal Express Checkout for WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "express-checkout"
+msgid ""
+"https://www.premiumdev.com/product/paypal-express-checkout-for-woocommerce/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -502,5 +636,5 @@ msgid "wpgateways"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://www.mbjtechnolabs.com/"
+msgid "https://www.premiumdev.com/"
 msgstr ""

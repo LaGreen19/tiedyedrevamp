@@ -7,11 +7,11 @@ Plugin Name: Etsy Shop
 Plugin URI: http://wordpress.org/extend/plugins/etsy-shop/
 Description: Inserts Etsy products in page or post using bracket/shortcode method.
 Author: Frédéric Sheedy
-Version: 0.18
+Version: 1.0
 */
 
 /*
- * Copyright 2011-2016  Frédéric Sheedy  (email : sheedf@gmail.com)
+ * Copyright 2011-2017  Frédéric Sheedy  (email : sheedf@gmail.com)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2, as 
@@ -28,9 +28,6 @@ Version: 0.18
  */
 
 /* Roadmap to version 1.x
- * TODO: touch() file in tmp folder
- * TODO: reset cache function
- * TODO: edit cache life
  * TODO: allow more than 100 items
  * TODO: customize currency
  * TODO: get Etsy translations
@@ -38,8 +35,7 @@ Version: 0.18
  * TODO: Add MCE Button
  */
 
-define( 'ETSY_SHOP_VERSION',  '0.18');
-define( 'ETSY_SHOP_CACHE_LIFE',  21600 ); // 6 hours in seconds
+define( 'ETSY_SHOP_VERSION',  '1.0');
 
 // load translation
 add_action( 'init', 'etsy_shop_load_translation_file' );
@@ -47,20 +43,16 @@ add_action( 'init', 'etsy_shop_load_translation_file' );
 // plugin activation
 register_activation_hook( __FILE__, 'etsy_shop_activate' );
 
+// check for update
+add_action( 'plugins_loaded', 'etsy_shop_update' );
+
 // add Settings link
 add_filter( 'plugin_action_links', 'etsy_shop_plugin_action_links', 10, 2 );
 
-function etsy_shop_load_translation_file() {
-    $plugin_path = plugin_basename( dirname( plugin_basename( __FILE__ ) ) .'/translations' );
-    load_plugin_textdomain( 'etsyshop', false, $plugin_path );
-}
 
-function etsy_shop_activate() {
-    // version upgrade
-    add_option( 'etsy_shop_version', ETSY_SHOP_VERSION );
-
-    $etsy_shop_DB_version = get_option( 'etsy_shop_version' );
-    if ( $etsy_shop_DB_version != ETSY_SHOP_VERSION) {
+function etsy_shop_update() {
+    $etsy_shop_version = get_option( 'etsy_shop_version' );
+    if ( $etsy_shop_version != ETSY_SHOP_VERSION ) {
 
         // upgrade logic here
 
@@ -68,10 +60,26 @@ function etsy_shop_activate() {
         if( !get_option( 'etsy_shop_timeout' ) ) {
             add_option( 'etsy_shop_timeout', '10' );
         }
+        
+        // initialize cache life option if not already there
+        if( !get_option( 'etsy_shop_cache_life' ) ) {
+            add_option( 'etsy_shop_cache_life', '21600' ); // 6 hours in seconds
+        }
 
         // update the version value
         update_option( 'etsy_shop_version', ETSY_SHOP_VERSION );
     }
+
+}
+
+
+function etsy_shop_load_translation_file() {
+    $plugin_path = plugin_basename( dirname( plugin_basename( __FILE__ ) ) .'/translations' );
+    load_plugin_textdomain( 'etsyshop', false, $plugin_path );
+}
+
+function etsy_shop_activate() {
+    etsy_shop_update();
 }
 
 /* === Used for backward-compatibility 0.x versions === */
@@ -267,7 +275,7 @@ function etsy_shop_getShopSectionListings( $etsy_shop_id, $etsy_section_id, $lan
     $etsy_cache_file = dirname( __FILE__ ).'/tmp/'.$etsy_shop_id.'-'.$etsy_section_id.'_cache.json';
 
     // if no cache file exist
-    if (!file_exists( $etsy_cache_file ) or ( time() - filemtime( $etsy_cache_file ) >= ETSY_SHOP_CACHE_LIFE ) or get_option( 'etsy_shop_debug_mode' ) ) {
+    if (!file_exists( $etsy_cache_file ) or ( time() - filemtime( $etsy_cache_file ) >= get_option( 'etsy_shop_cache_life' ) ) or get_option( 'etsy_shop_debug_mode' ) ) {
         // if language set
         if ($language != null) {
             $reponse = etsy_shop_api_request( "shops/$etsy_shop_id/sections/$etsy_section_id/listings/active", '&limit=100&includes=Images&language='.$language );
@@ -483,6 +491,15 @@ function etsy_shop_options_page() {
             // and remember to note the update to user
             $updated = true;
         }
+        
+        // did the user enter an Cache life?
+        if ( isset( $_POST['etsy_shop_cache_life'] ) ) {
+            $etsy_shop_cache_life = wp_filter_nohtml_kses( preg_replace( '/[^0-9]/', '', $_POST['etsy_shop_cache_life'] ) );
+            update_option( 'etsy_shop_cache_life', $etsy_shop_cache_life * 3600 );  // update time in hours * seconds
+
+            // and remember to note the update to user
+            $updated = true;
+        }
     }
     
     // delete cache file
@@ -532,11 +549,18 @@ function etsy_shop_options_page() {
         add_option( 'etsy_shop_target_blank', '0' );
     }
 
-    // grab the Etsy Tiomeout
+    // grab the Etsy Timeout
     if( get_option( 'etsy_shop_timeout' ) ) {
         $etsy_shop_timeout = get_option( 'etsy_shop_timeout' );
     } else {
         add_option( 'etsy_shop_timeout', '10' );
+    }
+
+    // grab the Etsy Cache life
+    if( get_option( 'etsy_shop_cache_life' ) ) {
+        $etsy_shop_cache_life = get_option( 'etsy_shop_cache_life' );
+    } else {
+        add_option( 'etsy_shop_cache_life', '21600' );
     }
 
     if ( $updated ) {
@@ -602,7 +626,8 @@ function etsy_shop_options_page() {
                      <th scope="row">
                          <label for="etsy_shop_cache_life"></label><?php _e('Cache life', 'etsyshop'); ?></th>
                              <td>
-                                 <?php _e('6 hours.', 'etsyshop'); ?>
+                                 <input id="etsy_shop_cache_life" name="etsy_shop_cache_life" type="text" size="2" class="small-text" value="<?php echo get_option( 'etsy_shop_cache_life' ) / 3600; ?>" class="regular-text code" />
+                                 <?php _e('hours', 'etsyshop'); ?>
                                   <p class="description">
                                     <?php echo __( 'Time before the cache update the listing', 'etsyshop' ); ?>
                                   </p>

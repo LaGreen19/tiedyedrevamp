@@ -6,7 +6,7 @@ Description: Image Slider (Lite) - Displaying your image as slider in post/page/
 Author: GhozyLab, Inc.
 Text Domain: image-slider-widget
 Domain Path: /languages
-Version: 1.1.89
+Version: 1.1.90
 Author URI: http://www.ghozylab.com/plugins/
 */
 
@@ -42,7 +42,7 @@ define( 'EWIC_API_URL', 'http://secure.ghozylab.com/' );
 if (!defined("EWIC_PLUGIN_SLUG")) define("EWIC_PLUGIN_SLUG","image-slider-widget/easy-slider-widget-lite.php");
 
 if ( !defined( 'EWIC_VERSION' ) ) {
-	define( 'EWIC_VERSION', '1.1.89' );
+	define( 'EWIC_VERSION', '1.1.90' );
 	}
 
 if ( !defined( 'EWIC_NAME' ) ) {
@@ -163,7 +163,9 @@ add_action( 'init', 'ewic_post_type' );
 /*-------------------------------------------------------------------------------*/
 function ewic_rename_submenu() {  
     global $submenu;     
-	$submenu['edit.php?post_type=easyimageslider'][5][0] = __( 'Sliders', 'image-slider-widget' );  
+	if ( is_admin() && current_user_can( 'manage_options' ) ) {
+		$submenu['edit.php?post_type=easyimageslider'][5][0] = __( 'Sliders', 'image-slider-widget' );  
+	} 
 }  
 add_action( 'admin_menu', 'ewic_rename_submenu' );  
 
@@ -347,57 +349,6 @@ function plugin_ewic_auto_update() {
 	{
 	}
 }
-
-/*--------------------------------------------------------------------------*/
-/* Plugin Update ChangeLogs
-/*--------------------------------------------------------------------------*/
-if( !function_exists( "ewic_plugin_update_changelogs" ) ){
-	
-	function ewic_plugin_update_changelogs( $args ){
-		
-		global $pagenow;
-		
-		if ( 'plugins.php' === $pagenow ){
-			
-		wp_enqueue_style( 'ewic_update_styles', plugins_url('inc/css/update.css' , __FILE__ ) );
-		
-		$response = wp_remote_get( 'https://plugins.svn.wordpress.org/image-slider-widget/trunk/readme.txt' );
-		
-		if ( ! is_wp_error( $response ) && ! empty( $response['body'] ) ) {
-			
-			$matches        = null;
-			$regexp         = '~==\s*Changelog\s*==\s*=\s*[0-9.]+\s*=(.*)(=\s*' . preg_quote( $args['Version'] ) . '\s*=|$)~Uis';
-			$upgrade_notice = '';
-			
-			if ( preg_match( $regexp, $response['body'], $matches ) ) {
-				$changelog = (array) preg_split( '~[\r\n]+~', trim( $matches[1] ) );
-				$upgrade_notice .= '<p class="ewic_update_changelogs_ttl">Changelog:</p>';
-				$upgrade_notice .= '<div class="ewic_update_changelogs">';
-				foreach ( $changelog as $index => $line ) {
-
-					if ( strpos( $line, '=' ) !== false ) {
-						
-						$line = preg_replace("/=/","Version ",$line, 1 );
-						$line = str_replace("=","",$line );
-						$upgrade_notice .= "<p class='ewic_version_clttl'>".$line."</p>";
-						
-					}
-						else {
-							
-							$upgrade_notice .= "<p><span class='dashicons dashicons-arrow-right'></span>".str_replace("*","",$line )."</p>";
-							
-						}
-
-					}
-					$upgrade_notice .= '</div> ';
-					echo $upgrade_notice;
-				}
-			}
-		}
-	}
-}
-
-add_action("in_plugin_update_message-".EWIC_PLUGIN_SLUG,"ewic_plugin_update_changelogs");
 
 
 /*-------------------------------------------------------------------------------*/

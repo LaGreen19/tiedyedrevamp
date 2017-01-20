@@ -6,7 +6,7 @@ function panoramic_wc_header_add_to_cart_fragment( $fragments ) {
     global $woocommerce;
     
     ob_start(); ?>
-        <a class="header-cart-contents" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e('View your shopping cart', 'panoramic'); ?>">
+        <a class="header-cart-contents" href="<?php echo esc_url( $woocommerce->cart->get_cart_url() ); ?>" title="<?php _e('View your shopping cart', 'panoramic'); ?>">
             <span class="header-cart-amount">
                 <?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'panoramic'), $woocommerce->cart->cart_contents_count);?> - <?php echo $woocommerce->cart->get_cart_total(); ?>
             </span>

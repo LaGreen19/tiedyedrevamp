@@ -4,7 +4,7 @@
  *
  * @package panoramic
  */
-define( 'PANORAMIC_THEME_VERSION' , '1.0.19' );
+define( 'PANORAMIC_THEME_VERSION' , '1.0.21' );
 
 if ( ! function_exists( 'panoramic_theme_setup' ) ) :
 /**
@@ -268,7 +268,7 @@ function panoramic_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'panoramic_excerpt_length', 999 );
 
 function panoramic_excerpt_more( $more ) {
-	return ' <a class="read-more" href="' . get_permalink( get_the_ID() ) . '">' . wp_kses_post( get_theme_mod( 'panoramic-blog-read-more-text', __('Read More', 'panoramic') ) ) . '</a>';
+	return ' <a class="read-more" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . wp_kses_post( get_theme_mod( 'panoramic-blog-read-more-text', __('Read More', 'panoramic') ) ) . '</a>';
 }
 add_filter( 'excerpt_more', 'panoramic_excerpt_more' );
 
@@ -404,7 +404,7 @@ function panoramic_register_required_plugins() {
 			'name'      => 'Yoast SEO',
 			'slug'      => 'wordpress-seo',
 			'required'  => false
-		),
+		)
 	);
 
 	$config = array(
